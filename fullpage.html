@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 시험</title>
+    <link rel="stylesheet" href="./jquery.fullPage.css">
+    <style>
+        .wrap {text-align: center;}
+        .wrap .container {height: 100vh;}
+        .wrap .container .title a {font-size: 3rem;}
+        .wrap .container .contents .tab_c {font-size: 2rem;}
+        .wrap .bg1 {background-color: lightblue;}
+        .wrap .bg2 {background-color: lightgreen;}
+        .wrap .bg3 {background-color: lightsalmon;}
+        .wrap .bg4 {background-color: lightgoldenrodyellow;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="container section bg1">
+            <div class="title">
+                <a href="#" class="t1">1</a>
+                <a href="#" class="t2">2</a>
+            </div>
+            <div class="contents">
+                <div class="tab_c c1">제이쿼리는 자바스크립트 라이브러리입니다.</div>
+                <div class="tab_c c2">제이쿼리는 DOM 이벤트와 스타일을 자바스크립트보다 쉽게 제작할 수 있습니다</div>
+            </div>
+        </div>
+        <div class="container section bg2"></div>
+        <div class="container section bg3"></div>
+        <div class="container section bg4"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="./jquery.fullPage.js"></script>
+    <script>
+        $('.wrap').fullpage({
+            scrollBar:true,
+            scrollingSpeed:500,
+        })
+
+        const title = $('.title')
+        const t1 = $('.t1')
+        const t2 = $('.t2')
+        const c1 = $('.c1')
+        const c2 = $('.c2')
+        c2.hide()
+            t1.on('click', function() {
+                c2.hide()
+                c1.show()
+            });
+            t2.on('click', function() {
+                c1.hide()
+                c2.show()
+            });
+    </script>
+</body>
+</html>
